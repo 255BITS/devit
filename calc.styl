@@ -1,0 +1,138 @@
+right-bar = 20em
+spacer = 2em
+gutter = 4em
+body
+  font-size: 16pt
+  padding: 0
+  margin: 0
+  background-image: url(http://blog.255bits.com/assets/backgrounds/px_by_Gre3g.png)
+  background-origin: padding-box
+  font-family: Belgrado, serif
+
+.total
+  position: fixed
+  overflow: auto
+  width: right-bar
+  right: 0
+  height: 100%
+  background-color: #eee
+  .cost
+    font-size: 26pt
+    color: green
+  .label
+    font-size: 26pt
+  .request
+    background-color: #339
+    color: white
+    font-size: 14pt
+    padding: 10px
+
+.discount
+  margin: 10px
+  height: 3em
+  .achievement
+    padding-left: 10px
+    width: 100%
+    .title
+      border-bottom: 1px solid black
+      font-size: 18pt
+    .description
+      font-size: 12pt
+  .value
+    float: left
+    height: 100%
+    width: 4em
+    text-align: center
+    color: red
+
+.spacer
+  margin-top: 50px
+
+h1.title
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: #333;
+  background-image: url(http://blog.255bits.com/assets/backgrounds/black_paper.png);
+  background-origin: padding-box;
+  box-shadow: #00A 0px 0px 20px 5px inset;
+  color: #FF5;
+  display: block;
+  font-family: bitface, monospace;
+  font-size: 30px;
+  font-weight: bold;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  padding-bottom: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 10px;
+  position: fixed;
+  text-align: center;
+  text-rendering: optimizelegibility;
+  top: 40px;
+  width: 600px;
+  z-index: -10000;
+
+.container
+  background-color: #eee
+  position: absolute
+  margin-right: right-bar+spacer
+  margin-left: gutter
+  margin-top: 141px
+  top: 0
+  left: 0
+
+h1.question
+  margin: 0
+  padding-top: 1em
+  border-bottom-color: #333;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  color: #3B3B00;
+  display: block;
+  float: left;
+  font-family: Belgrano, serif;
+  font-size: 30px;
+  font-weight: bold;
+  height: 36px;
+  line-height: 36px;
+  margin-bottom: 18px;
+  margin-left: 0px;
+  margin-right: 20px;
+  margin-top: 0px;
+  padding-bottom: 9px;
+  margin-left: 1em;
+  text-align: left;
+  text-rendering: optimizelegibility;
+  text-shadow: #AAA 0px 0px 1px;
+  width: 360px;
+  
+
+.control
+  width: 100%
+  margin-bottom: 2em
+  .choice-list
+    overflow: hidden
+    .choice.selected
+      background-color: lightblue
+    .choice
+      cursor: pointer
+      background-color: white
+      width: 20%
+      min-width: 200px
+      border: 1px solid grey
+      float: left
+      height: 7em
+      .value
+        display: none
+      .description
+        font-size: 12pt
+        color: grey
+
+.discount
+  display: none
+
