@@ -1,301 +1,174 @@
-!!!
-html
-  head
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
-    script(src='calc.js')
-    link(rel='stylesheet', href='calc.css')
-  body
-    .total
-      button.request Contact For Scheduling
-      h1.label Base Rate
-      #base-rate 200
-      h1.label Your Discounts:
-      #discounts
-      h1.label Total:
-      .cost 
+extend layout
+append head
+  script(src='achieve.js')
+  script(src='calc.js')
+  link(rel='stylesheet', href='calc.css')
+  
+block content
+  .total
+    button.request Contact For Scheduling
+    h1.label Base Rate
+    #base-rate 200
+    h1.label Your Discounts:
+    #discounts
+    h1.label Total:
+    .cost 
 
-    .container
-      h1.title 255 BITS Consulting
-      .control
-        .label Fill out the form to see our hourly cost
-        h1.question Technology
-        .choice-list
-          .choice
-            .title New Technology
-            .description Includes use of one or more of the following technologies:
-              | HTML5, CSS3, CoffeeScript, Less/Stylus/Sass/Scss,
-              | Ruby, Node.js, Vert.x, Scala, F#
-              | MongoDB or other NoSQL database
-            .discount
-              .value 20
-              .achievement
-                .title Living in the future
-                .description Using newer technology
-          .choice
-            .title Older Technology
-            .description Includes use of one or more of the following technologies:
-              | Java, IE 6-9, SVN, CVS, SQL
-            .discount
-              .value 5
-              .achievement
-                .title If It Ain't Broken
-                .description Uses solid time-tested technology
+  .discount.template(style='display:none')
+    .value 10
+    .achievement
+      .title Meet and Greet
+      .description Meeting up once every two months can be useful.
 
-      .control
-        h1.question Source control
-        .choice-list
-          .choice
-            .title Git or Mercurial or a distributed DB
-            .discount
-              .value 20
-              .achievement
-                .title Make Linus happy
-                .description Uses a newer distributed database.
-          .choice
-            .title SVN or CVS or other
-            .discount
-              .value 5
-              .achievement
-                .title Mega Repo
-                .description Uses a centralized database system
+  .container
+    h1.title 255 BITS Consulting
+    .control
+      .label Fill out the form to see our hourly cost
+      h1.question Technology
+      .choice-list
+        .choice
+          .title New Technology
+          .description Includes use of one or more of the following technologies:
+            | HTML5, CSS3, CoffeeScript, Less/Stylus/Sass/Scss,
+            | Ruby, Node.js, Vert.x, Scala, F#
+            | MongoDB or other NoSQL database
+        .choice
+          .title Older Technology
+          .description Includes use of one or more of the following technologies:
+            | Java, IE 6-9, SVN, CVS, SQL
 
-      .control
-        h1.question Code base
-        .choice-list
-          .choice
-            .title None Yet
-            .description The codebase is in either the extremely early stages or
-              | non existent.
-            .discount
-              .value 15
-              .achievement
-                .title Clean Slate
-                .description No codebase
-          .choice
-            .title In-Progress
-            .description The codebase is under active development by one or more
-              | full time developers that aren't offshore.
-            .discount
-              .value 15
-              .achievement
-                .title Show and Tell
-                .description The codebase is active.
-          .choice
-            .title In-Progress(Offshore)
-            .description The codebase is under active development by one or more
-              | full time developers that are offshore.
-            .discount
-              .value 5
-              .achievement
-                .title All Around The World
-                .description Offshore team
-          .choice
-            .title Legacy Application Maintenance
-            .description The codebase is in the maintenance phase, and new
-              | features may or may not be desired.
-            .discount
-              .value 5
-              .achievement
-                .title Almost Ready
-                .description The code is in maintenance.
+    .control
+      h1.question Source control
+      .choice-list
+        .choice
+          .title Git or Mercurial or a distributed DB
 
-      .control
-        h1.question Number Of Developers
-        .choice-list
-          .choice
-            .title 1-5
-            .description There are a limited number of talented engineers that 255
-              | BITS consultants will work with.
-            .discount
-              .value 10
-              .achievement
-                .title Great Engineers
-                .description Great things come from small teams.
-          .choice
-            .title 6-10
-            .description There is a large team to work with.
-            .discount
-              .value 10
-              .achievement
-                .title It Takes a Village
-                .description 2 heads are better than 1.
+        .choice
+          .title SVN or CVS or other
 
-          .choice
-            .title 0
-            .description We will need 255 BITS to champion development.
-            .discount
-              .value 20
-              .achievement 
-                .title David
-                .description A small team can take down a giant.
+    .control
+      h1.question Code base
+      .choice-list
+        .choice
+          .title None Yet
+          .description The codebase is in either the extremely early stages or
+            | non existent.
+          .discount(name='no_codebase')
 
-      .control
-        h1.question Travel
-        .choice-list
-          .choice
-            .title None or Infrequent
-            .description All work is remote or on-site in Denver, CO.
-            .discount
-              .value 20
-              .achievement 
-                .title Eco-Friendly
-                .description No travel means more time to work on the project.
-          .choice
-            .title Monthly
-            .description Once a month weekly travel will be required.
-              | Travel must be re-imbursed or additional charges will apply.
-            .discount
-              .value 5
-              .achievement
-                .title Friendly Faces
-                .description Communication is the key to any successful relationship.
-          .choice
-            .title Bi-Monthly
-            .description Once every two months weekly travel will be required.
-              | Travel must be re-imbursed or additional charges will apply.
-            .discount
-              .value 10
-              .achievement
-                .title Meet and Greet
-                .description Meeting up once every two months can be useful.
+        .choice
+          .title In-Progress
+          .description The codebase is under active development by one or more
+            | full time developers that aren't offshore.
+            
+        .choice
+          .title In-Progress(Offshore)
+          .description The codebase is under active development by one or more
+            | full time developers that are offshore.
 
-      .control
-        h1.question Startup
-        .choice-list
-          .choice
-            .title We are a startup
-            .description If the company is in an early round of funding, or has less
-              | 10 employees.
-            .discount
-              .value 20
-              .achievement
-                .title Saddle Up
-                .description It's the wild west, let us be your guide.
-          .choice
-            .title Past initial startup
-            .description The company has made it past the startup phase, either recently
-              | or a long time ago.
-            .discount
-              .value 15
-              .achievement
-                .title Two for the show
-                .description Your already successful, now let's scale.
+        .choice
+          .title Legacy Application Maintenance
+          .description The codebase is in the maintenance phase, and new
+            | features may or may not be desired.
 
-      .control
-        h1.question Product team
-        .choice-list
-          .choice
-            .title 1-3 People
-            .description 1-3 people will be involved in weekly demos.
-            .discount
-              .value 20
-              .achievement
-                .title Close-Knit Team
-                .description A smaller product team can lead to great results.
-          .choice
-            .title 4-6 people
-            .description 4-6 people will be involved in weekly demos.
-            .discount
-              .value 15
-              .achievement
-                .title Synergy
-                .description A group can often brainstorm things smaller teams cannot.
-          .choice
-            .title More than 6 people
-            .description More than 6 people will be involved in weekly demos.
-            .discount
-              .value 5
-              .achievement
-                .title Ocean Of Ideas
-                .description Let us help organize your ideas into product.
+    .control
+      h1.question Number Of Developers
+      .choice-list
+        .choice
+          .title 1-5
+          .description There are a limited number of talented engineers that 255
+            | BITS consultants will work with.
 
-      .control
-        h1.question Joel Test Score
-        .choice-list
-          .choice
-            .title 9-12
-            .description We have our organization completely together.
-            .discount
-              .value 20
-              .achievement
-                .title Joel Would Be Proud
-                .description Great Joel Score test.
-          .choice
-            .title 4-8
-            .description Things are going well, but there's always room to improve.
-            .discount
-              .value 15
-              .achievement
-                .title On The Way To Greatness
-                .description Joel rank can be improved with time and dedication
+        .choice
+          .title 6-10
+          .description There is a large team to work with.
 
-          .choice
-            .title 0-3
-            .description We are getting our act together and could use help.
-            .discount
-              .value 5
-              .achievement
-                .title Trapper Keeper
-                .description The organization skills of 255 BITS can help improve your 
-                  | Joel skills
+        .choice
+          .title 0
+          .description We will need 255 BITS to champion development.
+          .discount(name='no_developers')
 
-      .control
-        h1.question Located
-        .choice-list
-          .choice
-            .title Denver
-            .description
-            .discount
-              .value 20
-              .achievement
-                .title Local Subsidy
-                .description As great as remote solutions are, there's nothing like
-                  | meeting face to face.
-          .choice
-            .title Other
-            .description
-            .discount
-              .value 10
-              .achievement
-                .title Remote Control
-                .description In the future, globalization means work from where you are
-                  | with the best people.
+    .control
+      h1.question Travel
+      .choice-list
+        .choice
+          .title None or Infrequent
+          .description All work is remote or on-site in Denver, CO.
 
-      .control
-        h1.question Contract Length
-        .choice-list
-          .choice
-            .title < 1 Month
-            .description
-            .discount
-              .value 20
-              .achievement
-                .title Short and Sweet
-                .description A short contract can be benefical
-          .choice
-            .title 1-3 Months
-            .description
-            .discount
-              .value 10
-              .achievement
-                .title One Size Fits All
-                .description A quick contract can leave everyone 
-                  | happy
-          .choice
-            .title 3-6 Months
-            .description
-            .discount
-              .value 10
-              .achievement
-                .title Seasonal Discount
-                .description 3-6 months is enough time to take an idea to fruition.
-          .choice
-            .title +6 Months
-            .description
-            .discount
-              .value 10
-              .achievement
-                .title Handyman
-                .description We can build it, we can maintain it.
-          
+        .choice
+          .title Monthly
+          .description Once a month weekly travel will be required.
+            | Travel must be re-imbursed or additional charges will apply.
+            
+        .choice
+          .title Bi-Monthly
+          .description Once every two months weekly travel will be required.
+            | Travel must be re-imbursed or additional charges will apply.
 
+    .control
+      h1.question Startup
+      .choice-list
+        .choice
+          .title We are a startup
+          .description If the company is in an early round of funding, or has less
+            | 10 employees.
+
+        .choice
+          .title Past initial startup
+          .description The company has made it past the startup phase, either recently
+            | or a long time ago.
+
+    .control
+      h1.question Product team
+      .choice-list
+        .choice
+          .title 1-3 People
+          .description 1-3 people will be involved in weekly demos.
+
+        .choice
+          .title 4-6 people
+          .description 4-6 people will be involved in weekly demos.
+
+        .choice
+          .title More than 6 people
+          .description More than 6 people will be involved in weekly demos.
+
+    .control
+      h1.question Joel Test Score
+      .choice-list
+        .choice
+          .title 9-12
+          .description We have our organization completely together.
+
+        .choice
+          .title 4-8
+          .description Things are going well, but there's always room to improve.
+
+        .choice
+          .title 0-3
+          .description We are getting our act together and could use help.
+
+    .control
+      h1.question Located
+      .choice-list
+        .choice
+          .title Denver
+          .description
+
+        .choice
+          .title Other
+          .description
+
+    .control
+      h1.question Contract Length
+      .choice-list
+        .choice
+          .title < 1 Month
+
+        .choice
+          .title 1-3 Months
+
+        .choice
+          .title 3-6 Months
+
+        .choice
+          .title +6 Months
